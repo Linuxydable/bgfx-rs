@@ -1,16 +1,14 @@
-bgfx-rs [![travis-ci status](https://travis-ci.org/rhoot/bgfx-rs.svg?branch=master)](https://travis-ci.org/rhoot/bgfx-rs) [![appveyor status](https://ci.appveyor.com/api/projects/status/github/rhoot/bgfx-rs?branch=master&svg=true)](https://ci.appveyor.com/project/rhoot/bgfx-rs/branch/master)
+bgfx-rs
 =======
+
+## Reimplemented and Updated from the [bgfx-rs](https://github.com/rhoot/bgfx-rs) repository.
+
+**This repository is in heavy development, the library is currently unstable!**
 
 Rust wrapper around [bgfx], providing a clean, safe API for rust applications.
 
 *Please read the [crate documentation][docs] for build requirements and crate
 limitations before using.*
-
-**Note:** I was originally using this crate as a way of learning Rust. Since I
-personally stopped using Rust again however, this crate has ended up more or
-less unmaintained. There are a couple of forks that have some more work put
-into it already, but if someone wants to take over the project for real,
-please let me know so I can direct users to your fork instead.
 
 Documentation
 -------------

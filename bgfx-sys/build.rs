@@ -28,17 +28,20 @@ fn main() {
 /// Builds the bgfx binaries for `msvc` targets.
 fn build_msvc(bitness: u32) {
     let vs_version = env::var("VisualStudioVersion").expect("Visual Studio version not detected");
-    let platform = if bitness == 32 { "X86" } else { "X64" };
+    let windows_sdk_version = env::var("WindowsSDKVersion").expect("Windows SDK version not detected");
+    let platform = if bitness == 32 { "Win32" } else { "X64" };
 
     let vs_release = match vs_version.as_ref() {
         "12.0" => "2013",
         "14.0" => "2015",
         "15.0" => "2017",
+        "16.0" => "2019",
         _ => panic!(format!("Unknown Visual Studio version: {:?}", vs_version)),
     };
 
     Command::new("bx/tools/bin/windows/genie.exe")
         .current_dir("bgfx")
+        .arg(format!("--with-windows={}", windows_sdk_version))
         .arg("--with-dynamic-runtime")
         .arg(format!("vs{}", vs_release))
         .output()

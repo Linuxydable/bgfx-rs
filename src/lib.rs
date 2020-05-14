@@ -436,7 +436,7 @@ impl VertexDecl {
     pub fn new(renderer: Option<RendererType>) -> VertexDeclBuilder {
         unsafe {
             let renderer = mem::transmute(renderer.unwrap_or(RendererType::Noop));
-            let mut descr = VertexDeclBuilder { decl: mem::uninitialized() };
+            let mut descr = VertexDeclBuilder { decl: mem::MaybeUninit::uninit().assume_init() };
             bgfx_sys::bgfx_vertex_decl_begin(&mut descr.decl, renderer);
             descr
         }
